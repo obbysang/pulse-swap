@@ -1,0 +1,5 @@
+{
+  "name": "PulseSwap DEX",
+  "description": "A real-time decentralized exchange interface on Somnia Testnet using Somnia Data Streams for instant updates.",
+  "requestFramePermissions": []
+}

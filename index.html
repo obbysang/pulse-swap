@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PulseSwap | Real-time DEX</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: #050505; /* Deep dark background */
+        color: #e2e8f0;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+      /* Custom scrollbar for webkit */
+      ::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #0f172a; 
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #334155; 
+        border-radius: 3px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #475569; 
+      }
+      .glass-panel {
+        background: rgba(15, 23, 42, 0.6);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        transition: background-color 0.3s ease, border-color 0.3s ease;
+      }
+      .animate-pulse-green {
+        animation: pulse-green 1s cubic-bezier(0.4, 0, 0.6, 1);
+      }
+      @keyframes pulse-green {
+        0%, 100% { opacity: 1; color: #34d399; }
+        50% { opacity: .5; color: #10b981; }
+      }
+      .animate-fade-in {
+        animation: fadeIn 0.3s ease-out forwards;
+      }
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-5px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      
+      /* Scroll Reveal Utilities */
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+      }
+      .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* --- Light Mode Overrides --- */
+      [data-theme="light"] body {
+        background-color: #f8fafc;
+        color: #0f172a;
+      }
+      [data-theme="light"] .glass-panel {
+        background: rgba(255, 255, 255, 0.75);
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+      }
+      /* Text Colors */
+      [data-theme="light"] .text-white { color: #0f172a !important; }
+      [data-theme="light"] .text-slate-200 { color: #334155 !important; }
+      [data-theme="light"] .text-slate-300 { color: #475569 !important; }
+      [data-theme="light"] .text-slate-400 { color: #64748b !important; }
+      [data-theme="light"] .text-slate-500 { color: #94a3b8 !important; }
+      
+      /* Backgrounds */
+      [data-theme="light"] .bg-\[\#050505\] { background-color: #f1f5f9 !important; }
+      [data-theme="light"] .bg-\[\#0B0E11\] { background-color: #ffffff !important; border-color: #e2e8f0; }
+      [data-theme="light"] footer.bg-\[\#020202\] { background-color: #ffffff !important; border-top-color: #e2e8f0; }
+      
+      /* Borders */
+      [data-theme="light"] .border-white\/5 { border-color: rgba(0,0,0,0.05) !important; }
+      [data-theme="light"] .border-white\/10 { border-color: rgba(0,0,0,0.1) !important; }
+      
+      /* Specific Elements */
+      [data-theme="light"] input { color: #0f172a !important; }
+      [data-theme="light"] input::placeholder { color: #94a3b8 !important; }
+      [data-theme="light"] .bg-slate-800 { background-color: #e2e8f0 !important; color: #0f172a !important; }
+      [data-theme="light"] .bg-slate-900 { background-color: #f8fafc !important; }
+      [data-theme="light"] .hover\:bg-white\/5:hover { background-color: rgba(0,0,0,0.05) !important; }
+
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0",
+    "recharts": "https://aistudiocdn.com/recharts@^3.5.1"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
